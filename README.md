@@ -22,3 +22,7 @@ Then ask Claude Code e.g. "make a study plan until my exam on 2026-12-14, 3 h a 
 ## Notes
 - Nothing is downloaded from Moodle, and no password is ever typed by the tool.
 - The tool never deletes cards or files and never resets Anki progress.
+
+## Example plan
+`examples/example-plan.json` shows the plan format (topics, videos, page ranges with `pageOffset`,
+Anki searches, daily routine as `dayNotes`). Replace the placeholder paths, URLs and deck names with your own.
