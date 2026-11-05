@@ -11,7 +11,7 @@ into the Anki add-on **Smart Study Plan**. Includes a daily routine (fixed times
 ## Install
 Copy this folder to `~/.claude/skills/study-plan/` (or any folder your Claude Code setup reads skills from).
 
-Then ask Claude Code e.g. "make a study plan until my exam on 2026-12-14, 3 h a day, gym 17:00–18:00".
+Then ask Claude Code e.g. "make a study plan until my exam on <date>, 3 h a day, sport 17:00–18:00".
 
 ## Files
 - `SKILL.md`: the instructions Claude Code follows

@@ -77,35 +77,35 @@ A **topic** bundles what belongs together: script pages + videos + Anki subdeck.
 - **Written exam questions:** if the written part is the bottleneck, do not leave the question banks to the last days. Put them into the plan from the middle of the period on (e.g. a fixed block every second day).
 
 ### 5. Daily routine (day notes)
-The add-on shows a free-text note per day. Use it for a fixed daily routine that the planner cannot schedule, e.g. sport, breaks, or a time table:
+The add-on shows a free-text note per day. Use it for a fixed daily routine that the planner cannot schedule, e.g. sport, breaks, or a fixed time table:
 
 ```json
 "dayNotes": {
-  "2026-11-07": "Routine: 08:00 Anki reviews (due cards first) · 09:00 video of the topic · 09:30 script pages · 10:30 new cards · 13:00 question bank · 17:00–18:00 gym (1 h)"
+  "YYYY-MM-DD": "Routine: 08:00 Anki reviews (due cards first) · 09:00 video of the topic · 09:30 script pages · 10:30 new cards · 13:00 practice questions · 17:00–18:00 sport (1 h)"
 }
 ```
 - Write the same routine for every day (generate the dict in a short script) and adjust the days where it changes.
-- Fixed activities are notes, not scheduled items. Set `minutesPerDay` to the study time *without* the fixed activities, so the planner does not fill the gym hour.
+- Fixed activities are notes, not scheduled items. Set `minutesPerDay` to the study time *without* the fixed activities, so the planner does not fill the sport slot.
 
 ### 6. Write the plan file
 Structure (fields as in the add-on):
 ```json
 {
- "id": "anatomy1", "title": "Anatomy exam", "subtitle": "short summary",
- "exam": "2026-12-14", "examTime": "09:00", "start": "2026-11-07",
- "minutesPerDay": 240, "offWeekdays": [6], "dayMinutes": {"2026-11-07": 120},
- "dayNotes": {"2026-11-07": "Routine: ..."},
- "milestones": [{"id": "m1", "name": "Test 1", "date": "2026-11-20", "time": "", "prep": false}],
+ "id": "my-exam", "title": "My exam", "subtitle": "short summary",
+ "exam": "YYYY-MM-DD", "examTime": "09:00", "start": "YYYY-MM-DD",
+ "minutesPerDay": 240, "offWeekdays": [6], "dayMinutes": {"YYYY-MM-DD": 120},
+ "dayNotes": {"YYYY-MM-DD": "Routine: ..."},
+ "milestones": [{"id": "m1", "name": "Test 1", "date": "YYYY-MM-DD", "time": "", "prep": false}],
  "sources": [
   {"id": "script", "type": "pages", "name": "Script", "file": "/path/script.pdf", "pageOffset": 4, "minPerUnit": 5},
   {"id": "vid", "type": "videos", "name": "Moodle videos", "defaultMin": 10, "minPerUnit": null,
-   "videos": [{"id": "v1", "name": "Shoulder joint", "min": 18, "url": "https://moodle.example.edu/mod/..."}]},
-  {"id": "joints", "type": "anki", "name": "Joints", "decks": ["Deck::Joints"], "minPerUnit": 1.5},
-  {"id": "table", "type": "anki", "name": "Muscle table (review only)", "decks": ["Deck::Table"], "minPerUnit": 0.25, "reviewOnly": true}
+   "videos": [{"id": "v1", "name": "Topic A video", "min": 18, "url": "https://moodle.example.edu/mod/..."}]},
+  {"id": "cards", "type": "anki", "name": "Anki deck", "decks": ["Deck::Topics"], "minPerUnit": 1.5},
+  {"id": "table", "type": "anki", "name": "Reference table (review only)", "decks": ["Deck::Table"], "minPerUnit": 0.25, "reviewOnly": true}
  ],
  "topics": [
-  {"id": "k1", "name": "Shoulder", "pages": {"script": [65, 69]}, "videos": {"vid": ["v1"]},
-   "anki": {"joints": "deck:\"Deck::Joints::Shoulder\""}, "milestone": "m1"}
+  {"id": "k1", "name": "Topic A", "pages": {"script": [1, 10]}, "videos": {"vid": ["v1"]},
+   "anki": {"cards": "deck:\"Deck::Topics::Topic A\""}, "milestone": "m1"}
  ]
 }
 ```
